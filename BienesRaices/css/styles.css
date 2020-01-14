@@ -1,0 +1,580 @@
+/*--------------     BODY      --------------*/
+/*------- Las fuentes se colocan en el body -------*/
+
+html{
+  box-sizing: border-box;
+  font-size: 62.5% /** Reset para REMS - 62.5% = 10 px de 16 px*/
+}
+
+*, *:before, *:after{
+  box-sizing: inherit;
+}
+body {
+  /* https://fonts.google.com */
+  font-family: 'lato', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2;
+
+}
+
+
+
+/*--------------     GLOBAL      --------------*/
+
+
+.contenedor {
+
+  max-width: 120rem; /** 1200 pixeles
+
+/*
+  margin-left:  auto;
+  margin-right: auto;
+
+ Podemos remplazar las dos lineas de arriba con una sola:
+   primer parametro = alineación arriba
+   segundo parametro = alineacion derecha
+   segundo parametro = alineacion abajo
+   segundo parametro = alineacion izquierda
+
+margin: 0 auto 0 auto;
+podemos abrebiar este ùltimo si los valores se repiten como: */
+
+  margin: 0 auto;
+
+}
+img{
+max-width: 100%;
+}
+
+
+h1 {
+
+  font-size: 3.8rem;
+}
+h2 {
+
+  font-size: 3.4rem;
+}
+h3 {
+
+  font-size: 3rem;
+}
+h4 {
+
+  font-size: 2.6rem;
+}
+
+/* utilidades*/
+
+.seccion{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.fw-300{
+  font-weight: 900;
+}
+
+.centrar-texto{
+  text-align: center;
+}
+.d-block{
+  display: block!important;
+}
+.contenido-centrado{
+  max-width: 800px;
+}
+
+/*--------------     BOTONES      --------------*/
+.boton{
+color: white;
+font-weight: 700;
+text-decoration: none;
+font-size: 1.8rem;
+padding: 1rem 3rem;
+margin-top: 3rem;
+display: inline-block;
+text-align: center;
+border: none;
+display: block;
+flex: 0 0 100%;
+}
+
+@media (min-width: 768px){
+  .boton{
+    display: inline-block;
+    flex: 0 0 auto;
+ }
+}
+
+.boton:hover {
+  cursor: pointer;
+}
+
+.boton-amarillo{
+background-color: #E08709;
+
+}
+.boton-verde{
+background-color: #71B100;
+
+}
+
+
+/*--------------     HEADER      --------------*/
+
+
+/*    Aplicamos un elemento que tengan las dos clases
+    Estamos por dar estilo a las dos clases*/
+.site-header{
+
+  background: #333333;
+  padding:  1rem 0 3rem 0;
+}
+
+
+.site-header.inicio{
+
+/* agregamos una imagen de fondo*/
+
+/* Estoy en el directorio Css para poder salirme e ingresar a una imagen que esta en la carpeta img, voy a usar ../ */
+
+background: url(../img/header.jpg);
+
+/* posicionamos la imagen*/
+background-position: center center;
+/* tomamos todo el espacio disponible en alto y ancho pero, siempre guardando las proporciones */
+
+background-size: cover;
+
+/* aplicamos una función que detecta el tamaño de tu pantalla y coloca la imagen a ese tamaño
+vh donde v es view y h es hight, cubre la altura de la pantalla
+
+*/
+
+height: 100vh;
+
+
+
+/* establecemos un tamaño mìnimo de pantalla con la siguiente funcion */
+
+min-height: 60rem;
+
+}
+
+.contenido-header{
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media (min-width: 768px){
+  .contenido-header{
+  text-align: left;
+}
+
+}
+.contenido-header h1{
+  color: white;
+  max-width: 60rem;
+  line-height: 2;
+}
+.barra {
+
+/* se aplica a toda la barra sea el tamaño que sea que tenga*/
+  padding-top: 3rem;
+
+}
+
+@media (min-width: 768px){
+   .barra{
+     /* Hablitamos flexbox, esto permite que la barra esté del lado derecho y no por debajo de la imagen "bienes raices" */
+     display: flex;
+     /* Alimeamos la barra:  space-around deja espacio al comienzo y luego hace uno por cada elemento que tengamos en la linea. Acá usamos space-between para crear espacioes entre los items */
+     justify-content: space-between;
+     /* Alinieamos verticalmente*/
+     align-items: center;
+
+   }
+}
+/*--------------     NAVEGACION      --------------*/
+/*
+Selecciono una clase y despues defino los elementos que son hijos de la clase mediante su etiqueta (en este caso "a")
+*/
+
+.navegacion a {
+
+  /* Color en exadecimal
+  color: #ffffff;
+  */
+
+  /* Color en rgb usando como último paramtero la transparecnia de la letra */
+
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 2.2rem;
+  /* separacion a la derecha de cada elemento*/
+  display: block;
+}
+
+/* Mobile Menu */
+
+.mobile-menu img{
+  width:5rem;
+}
+/* em 768 px ocultamos el Mobile Menu */
+
+@media (min-width: 768px){
+   .mobile-menu{
+     display: none;
+   }
+}
+/* ocultamos por default la navegacion y cuando pase los 678px la mostramos */
+
+.navegacion:target{
+  display: block;
+}
+.navegacion{
+  display: none;
+}
+
+
+@media (min-width: 768px){
+   .navegacion{
+     display: block;
+   }
+   .navegacion a {
+     display: inline-block;
+     font-size: 1.8rem;
+     margin-right: 2rem;
+   }
+   .navegacion a:last-of-type{
+     margin: 0;
+   }
+}
+
+/* al último elemeno le quito el margen a la derecha*/
+.navegacion a:hover{
+  color: #71B100;
+
+}
+@media (min-width: 768px){
+  .iconos-nosotros{
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+/* Se aplica a todos */
+.icono{
+  text-align: center;
+}
+
+/* solo se aplica cuando la página supera los 768px */
+@media (min-width:768px){
+  .icono{
+    flex-basis: calc(33.3% - 1rem);
+  }
+}
+
+.icono h3 {
+  text-transform: uppercase;
+}
+
+/*--------------     ANUNCIOS      --------------*/
+
+
+@media (min-width: 768px){
+
+/*Aplicamos flexbox en toda esta parte por eso la metemos dentro de um media query para que no aplique a un dispositivo movil*/
+.contenedor-anuncios{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+}
+}
+
+
+.anuncio{
+  border: 1px solid #B5B5B5;
+  background: #f5f5f5;
+  margin-bottom: 2rem;
+
+}
+
+@media (min-width: 768px){
+  .anuncio{
+    /* flex tiene tres parametros, grow, shrink basis
+      flex-grow:
+      flex-shrink: 0;
+      flex-basis: calc(33.3% - 1rem);*/
+    flex: 0 0 calc(33.3% - 1rem);
+  }
+
+
+
+}
+
+.contenido-anuncio{
+  padding: 2rem;
+}
+
+.contenido-anuncio h3, .contenido-anuncio p {
+
+  margin: 0;
+}
+.precio{
+  color: #71B100;
+  font-weight: 700;
+}
+
+.icono-caracteristicas{
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: space-evenly;
+  flex: 1;
+  max-width: 500px;
+}
+.icono-caracteristicas li{
+
+  display: flex;
+
+}
+
+.icono-caracteristicas li img{
+margin-right: 2rem;
+}
+
+.ver-todas{
+  display:flex;
+  justify-content: flex-end;
+}
+
+/*--------------     CONTATO HOME      --------------*/
+.imagen-contacto{
+  background-image: url(../img/Encuentra.jpg);
+  background-position: center center;
+  background-size: cover;
+  height: 40rem;
+  display: flex;
+  align-items: center;
+
+}
+
+.contenido-contacto{
+  /*Para que crezca y tome todo el espacio
+    flex: 1;
+    Queremos un 95% del espacio, entonces aplicamos:
+    flex: 0 0 95%;
+    este cambio se ve en dispositivos moviles*/
+  flex: 0 0 95%;
+  color: #ffffff;
+}
+
+.contenido-contacto p{
+  font-size: 1.8rem;
+}
+
+/*------------  seccion inferior   ------------*/
+@media (min-width: 768px){
+
+  .seccion-inferior{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .seccion-inferior .blog{
+    flex-basis: 60%;
+  }
+
+  .seccion-inferior .Testimoniales{
+    flex-basis: calc(40% - 2rem);
+  }
+
+}
+
+.entrada-blog{
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 678px){
+  .entrada-blog{
+    display: flex;
+    justify-content: space-between;
+  }
+
+}
+.entrada-blog:last-of-type{
+  margin-bottom: 0;
+}
+@media (min-width: 768px){
+
+  .entrada-blog .imagen{
+    flex-basis: 40%;
+  }
+  .entrada-blog .texto-entrada{
+    flex-basis: calc(60% - 3rem);
+  }
+}
+
+.texto-entrada a{
+  color: #000000;
+  text-decoration: none;
+}
+
+.texto-entrada h4{
+  margin: 0;
+  line-height: 1.4  ;
+}
+
+.texto-entrada h4::after {
+content: '';
+display: block;
+width: 15rem;
+height: .5rem;
+background: #71B100;
+margin-top: 1rem;
+}
+.texto-entrada span{
+  color: #E08709;
+}
+
+/*------------  testimoniales   ------------*/
+
+.testimonial{
+  background-color: #71B100;
+  font-size: 2.4rem;
+  padding: 2rem;
+  color: #ffffff;
+  border-radius: 2rem;
+}
+.testimonial p{
+  text-align: right;
+}
+.testimonial blockquote::before {
+  content: ' ';
+  background-image: url(../img/comilla.svg);
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  left: -2rem;
+}
+
+.testimonial blockquote{
+  position: relative;
+  padding-left: 5rem;
+  font-weight: 300;
+}
+
+
+/*--------------     FOOTER      --------------*/
+
+.site-footer{
+background-color: #333333;
+margin: 0;
+}
+
+.contenedor-footer{
+  padding: 3rem 0;
+  text-align: center;
+}
+
+@media (min-width: 768px){
+
+   .contenedor-footer{
+     display: flex;
+     justify-content: space-between;
+   }
+}
+
+/* si quiero ocultar la navegación del footer en telefonos, entonces habilito esta parte del código
+
+.site-footer nav{
+  display: none;
+}
+@media (min-width: 768px){
+  .site-footer nav{
+    display: block;
+  }
+}
+*/
+.copyright{
+  margin: 0;
+  color: #ffffff;
+}
+
+/** -------   INTERNAS   ------- **/
+/** -------   nosotros   ------- **/
+
+@media (min-width: 768px){
+  .contenido-nosotros{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 2rem;
+  }
+}
+
+
+.texto-nosotros blockquote{
+  font-weight: 900;
+  font-size: 2rem;
+  margin: 0;
+  padding: 1rem 0 3rem 0;
+}
+
+/** -------   anuncio   ------- **/
+.resumen-propiedad{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/** -------   contacto   ------- **/
+.contacto p{
+  font-size: 1.4rem;
+  color: #4f4f4f;
+  margin: 2rem 0 0 0;
+}
+legend{
+  font-size: 2rem;
+  color: #4f4f4f;
+}
+
+label{
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+
+  /** para que todos los labels tomen todo el espacio disponible **/
+}
+
+input:not([type = "submit"]), textarea, select {
+  padding: 1rem;
+  display: block;
+  width: 100%;
+  background-color: #e1e1e1;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: .4rem;
+}
+input[type="radio"]{
+  width: auto;
+  margin: 0;
+}
+select{
+  -webkit-appearance: none;
+  appearance: none;
+}
+textarea{
+  height: 20rem;
+}
+.forma-contacto{
+  max-width: 30rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
